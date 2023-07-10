@@ -65,7 +65,7 @@ def create_item(
     item_orm = ItemORM(name=item.name, owner=user_id)
     session.add(item_orm)
     session.commit()
-    return ItemInDB.from_orm(item_orm)
+    return ItemInDB.model_validate(item_orm)
 
 
 @app.get("/item/{item_id}", response_model=ItemInDB)
@@ -76,7 +76,7 @@ def read_item(
     item_id: ItemID,
 ) -> ItemInDB:
     item_orm = get_owned_item(session, user_id, item_id)
-    return ItemInDB.from_orm(item_orm)
+    return ItemInDB.model_validate(item_orm)
 
 
 @app.put("/item/{item_id}", response_model=ItemInDB)
@@ -91,7 +91,7 @@ def update_item(
     item_orm.name = item.name
     session.add(item_orm)
     session.commit()
-    return ItemInDB.from_orm(item_orm)
+    return ItemInDB.model_validate(item_orm)
 
 
 @app.delete("/item/{item_id}", response_model=APIMessage)

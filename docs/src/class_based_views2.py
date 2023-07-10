@@ -69,12 +69,12 @@ class ItemCBV:
         item_orm = ItemORM(name=item.name, owner=self.user_id)
         self.session.add(item_orm)
         self.session.commit()
-        return ItemInDB.from_orm(item_orm)
+        return ItemInDB.model_validate(item_orm)
 
     @router.get("/item/{item_id}")
     def read_item(self, item_id: ItemID) -> ItemInDB:
         item_orm = get_owned_item(self.session, self.user_id, item_id)
-        return ItemInDB.from_orm(item_orm)
+        return ItemInDB.model_validate(item_orm)
 
     @router.put("/item/{item_id}")
     def update_item(self, item_id: ItemID, item: ItemCreate) -> ItemInDB:
@@ -82,7 +82,7 @@ class ItemCBV:
         item_orm.name = item.name
         self.session.add(item_orm)
         self.session.commit()
-        return ItemInDB.from_orm(item_orm)
+        return ItemInDB.model_validate(item_orm)
 
     @router.delete("/item/{item_id}")
     def delete_item(self, item_id: ItemID) -> APIMessage:

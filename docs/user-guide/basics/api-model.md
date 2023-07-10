@@ -9,7 +9,7 @@ Fortunately, pydantic has built-in functionality to make it easy to have `snake_
 and use `snake_case` attribute names when initializing model instances in your own code,
 but accept `camelCase` attributes from external requests.
 
-Another `BaseModel` config setting commonly used with FastAPI is `orm_mode`, which allows your models
+Another `BaseModel` config setting commonly used with FastAPI is `from_attributes=True`, which allows your models
 to be read directly from ORM objects (such as those used by SQLAlchemy). 
 
 You can use `fastapi_restful.api_model.APIModel` to easily enable all of these frequently desirable settings.
@@ -55,7 +55,7 @@ or camel case:
 and both will work.
 
 In addition, if you set the `response_model` argument to the endpoint decorator and return an object that can't
-be converted to a dict, but has appropriately named fields, FastAPI will use pydantic's `orm_mode` to automatically
+be converted to a dict, but has appropriately named fields, FastAPI will use pydantic's `from_attributes=True` to automatically
 serialize it.
 
 ```python hl_lines="30 32"
