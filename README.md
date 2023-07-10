@@ -52,7 +52,7 @@ This package includes a number of utilities to help reduce boilerplate and reuse
 It also adds a variety of more basic utilities that are useful across a wide variety of projects:
 
 * **APIModel**: A reusable `pydantic.BaseModel`-derived base class with useful defaults
-* **APISettings**: A subclass of `pydantic.BaseSettings` that makes it easy to configure FastAPI through environment variables 
+* **APISettings**: A subclass of `pydantic_settings.BaseSettings` that makes it easy to configure FastAPI through environment variables 
 * **String-Valued Enums**: The `StrEnum` and `CamelStrEnum` classes make string-valued enums easier to maintain
 * **CamelCase Conversions**: Convenience functions for converting strings from `snake_case` to `camelCase` or `PascalCase` and back
 * **GUID Type**: The provided GUID type makes it easy to use UUIDs as the primary keys for your database tables

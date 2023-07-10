@@ -4,7 +4,7 @@ from uuid import UUID
 
 import sqlalchemy as sa
 from fastapi import Depends, FastAPI
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 from sqlalchemy.orm import Session, declarative_base
 
 from fastapi_restful.guid_type import GUID, GUID_DEFAULT_SQLITE

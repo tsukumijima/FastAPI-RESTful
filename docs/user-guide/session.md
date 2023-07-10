@@ -35,7 +35,7 @@ Next, we set up infrastructure for loading the database uri from the environment
 {!./src/session1.py!}
 ```
 
-We use the `pydantic.BaseSettings` to load variables from the environment. There is documentation for this class in the
+We use the `pydantic_settings.BaseSettings` to load variables from the environment. There is documentation for this class in the
 <a href="https://pydantic-docs.helpmanual.io/usage/settings/" class="external-link" target="_blank">pydantic docs</a>,
 but the basic idea is that if a model inherits from this class, any fields not specified during initialization
 are read from the environment if possible.
